@@ -42,4 +42,12 @@ public class SimilarityFinderTest {
 
         Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq, seq), Matchers.equalTo(1.0));
     }
+
+    @Test(expected = NullPointerException.class)
+    public void jackardSimilarityShouldThrowNullPointerExceptionIfSequenceIsNotInitializedTest() {
+        int[] seq1 = {1, 2, 3};
+        int[] seq2 = null;
+
+        similarityFinder.calculateJackardSimilarity(seq1, seq2);
+    }
 }
