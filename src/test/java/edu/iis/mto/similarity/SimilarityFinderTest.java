@@ -23,8 +23,15 @@ public class SimilarityFinderTest {
 
     @Test
     public void jackardSimilarityShouldBeOneIfSequencesAreEqualTest() {
-        int[] seq1 = {1, 2, 3};
+        int[] seq = {1, 2, 3};
 
-        Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq1, seq1), Matchers.equalTo(1.0));
+        Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq, seq), Matchers.equalTo(1.0));
+    }
+
+    @Test
+    public void jackardSimilarityShouldBeOneIfSequencesAreEmptyTest() {
+        int[] seq = {};
+
+        Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq, seq), Matchers.equalTo(1.0));
     }
 }
