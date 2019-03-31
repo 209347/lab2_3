@@ -5,8 +5,20 @@ import edu.iis.mto.search.SequenceSearcher;
 
 public class SequenceSearcherDoubler implements SequenceSearcher {
 
+    private int numberOfCalls;
+
+    public int getNumberOfCalls() {
+        return numberOfCalls;
+    }
+
+    public void setNumberOfCalls(int numberOfCalls) {
+        this.numberOfCalls = numberOfCalls;
+    }
+
     @Override
     public SearchResult search(int key, int[] seq) {
+        numberOfCalls++;
+
         SearchResult.Builder builder = SearchResult.builder();
 
         for (int i = 0; i < seq.length; i++) {

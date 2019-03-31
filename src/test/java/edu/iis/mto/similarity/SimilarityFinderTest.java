@@ -50,4 +50,14 @@ public class SimilarityFinderTest {
 
         similarityFinder.calculateJackardSimilarity(seq1, seq2);
     }
+
+    @Test
+    public void jackardSimilarityShouldBeCalledForEveryElementInTheFirstSequenceTest() {
+        int[] seq1 = {1, 2, 3, 4, 5};
+        int[] seq2 = {1, 2, 3};
+
+        sequenceSearcherDoubler.setNumberOfCalls(0);
+        similarityFinder.calculateJackardSimilarity(seq1, seq2);
+        Assert.assertThat(sequenceSearcherDoubler.getNumberOfCalls(), Matchers.equalTo(seq1.length));
+    }
 }
