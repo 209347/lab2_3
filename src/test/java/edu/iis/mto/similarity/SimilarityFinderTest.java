@@ -22,6 +22,14 @@ public class SimilarityFinderTest {
     }
 
     @Test
+    public void jackardSimilarityShouldBeZeroIfSequencesAreDifferentTest() {
+        int[] seq1 = {1, 2, 3};
+        int[] seq2 = {4, 5, 6};
+
+        Assert.assertThat(similarityFinder.calculateJackardSimilarity(seq1, seq2), Matchers.equalTo(0.0));
+    }
+
+    @Test
     public void jackardSimilarityShouldBeOneIfSequencesAreEqualTest() {
         int[] seq = {1, 2, 3};
 
